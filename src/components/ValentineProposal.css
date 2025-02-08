@@ -9,7 +9,7 @@
   justify-content: center;
   overflow: hidden;
   position: relative;
-  background-color: rgba(255, 192, 203, 0.1);
+  background-color: var(--primary-color-lighter);
 }
 
 .photos-container {
@@ -61,7 +61,7 @@
 }
 
 .button {
-  background-color: #434343;
+  background-color: var(--primary-color);
   color: white;
   padding: 1rem 2rem;
   border: none;
@@ -72,7 +72,7 @@
 }
 
 .button:hover {
-  background-color: #434343;
+  background-color: var(--primary-color-hover);
   color: #ffffff;
   outline: none;
 }
@@ -87,7 +87,6 @@
 
 .intro-text {
   text-align: center;
-  color: #434343;
   position: relative;
   z-index: 1;
   padding: 2rem;
@@ -96,8 +95,10 @@
 .intro-text h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: var(--text-color);
 }
 
 .intro-text p {
   font-size: 2rem;
+  color: var(--text-color);
 }

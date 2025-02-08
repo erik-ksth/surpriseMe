@@ -1,7 +1,14 @@
+:root {
+  --primary-color: #7f65ff;
+  --primary-color-hover: #5a43ca;
+  --text-color: var(--primary-color);
+  --background-color: #ffffff;
+}
+
 #root {
-  background-color: #ffffff;
+  background-color: var(--background-color);
   margin: 0 auto;
-  color: #434343;
+  color: var(--text-color);
   text-align: center;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -16,6 +23,7 @@
 
 p {
   font-size: 2rem;
+  color: var(--text-color);
 }
 
 .app-container {
@@ -27,9 +35,9 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow-x: scroll;
   position: relative;
-  background-color: rgba(255, 192, 203, 0.1);
+  background-color: var(--primary-color-lighter);
 }
 
 .background-circles {
@@ -52,7 +60,7 @@ p {
 .circle-1 {
   width: 50vw;
   height: 50vw;
-  background-color: rgba(255, 182, 193, 0.3); /* Light pink */
+  background-color: #fff7ff;
   top: -40%;
   left: -10%;
   animation: float1 15s ease-in-out infinite;
@@ -61,7 +69,7 @@ p {
 .circle-2 {
   width: 45vw;
   height: 45vw;
-  background-color: rgba(173, 216, 230, 0.3); /* Light blue */
+  background-color: #edfaff;
   bottom: -40%;
   right: -10%;
   animation: float2 18s ease-in-out infinite;

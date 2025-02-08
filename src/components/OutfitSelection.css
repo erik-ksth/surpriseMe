@@ -10,13 +10,13 @@
 .outfit-content h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #434343;
+  color: var(--text-color);
 }
 
 .outfit-content p {
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #434343;
+  color: var(--text-color);
 }
 
 .outfit-grid {
@@ -86,7 +86,7 @@
 
 .question-mark {
   font-size: 5rem;
-  color: #434343;
+  color: var(--text-color);
   display: block;
   margin-bottom: 1rem;
 }
@@ -101,8 +101,8 @@
 
 .card-back p {
   font-size: 1.5rem;
+  color: var(--text-color);
   margin: 0;
-  color: #434343;
   position: absolute;
   bottom: 1rem;
   width: 100%;
@@ -114,7 +114,7 @@
 }
 
 .next-button {
-  background-color: #434343;
+  background-color: var(--primary-color);
   color: white;
   padding: 1rem 2rem;
   border: none;
@@ -125,7 +125,7 @@
 }
 
 .next-button:hover {
-  background-color: #2a2a2a;
+  background-color: var(--primary-color-hover);
 }
 
 @media (max-width: 768px) {
@@ -146,6 +146,7 @@
   }
 
   .outfit-content p {
+    color: var(--text-color);
     font-size: 1.5rem;
   }
 
