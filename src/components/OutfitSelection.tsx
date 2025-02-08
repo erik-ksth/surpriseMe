@@ -3,6 +3,7 @@ import { useState, useMemo } from 'react';
 import { categories } from '../data/choices';
 import { useChoices } from '../context/ChoicesContext';
 import DinnerSelection from './DinnerSelection';
+import SoundManager from '../utils/sounds';
 import './OutfitSelection.css';
 
 const OutfitSelection = () => {
@@ -22,8 +23,14 @@ const OutfitSelection = () => {
                const selectedOutfit = outfitCategory.choices.find(outfit => outfit.id === outfitId);
                if (selectedOutfit) {
                     setOutfitChoice(selectedOutfit);
+                    SoundManager.playSound('cardFlip');
                }
           }
+     };
+
+     const handleNextClick = () => {
+          SoundManager.playSound('transition');
+          setShowDinner(true);
      };
 
      if (showDinner) {
@@ -89,7 +96,7 @@ const OutfitSelection = () => {
                                         className="button next-button"
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
-                                        onClick={() => setShowDinner(true)}
+                                        onClick={handleNextClick}
                                    >
                                         Next Step →
                                    </motion.button>

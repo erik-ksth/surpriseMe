@@ -3,6 +3,7 @@ import { useState, useMemo } from 'react';
 import { categories } from '../data/choices';
 import { useChoices } from '../context/ChoicesContext';
 import ReviewChoices from './ReviewChoices';
+import SoundManager from '../utils/sounds';
 import './MovieSelection.css';
 
 const MovieSelection = () => {
@@ -22,8 +23,14 @@ const MovieSelection = () => {
                const selectedMovie = movieCategory.choices.find(movie => movie.id === movieId);
                if (selectedMovie) {
                     setMovieChoice(selectedMovie);
+                    SoundManager.playSound('cardFlip');
                }
           }
+     };
+
+     const handleNextClick = () => {
+          SoundManager.playSound('success'); // Use success sound for final transition
+          setShowReview(true);
      };
 
      if (showReview) {
@@ -89,7 +96,7 @@ const MovieSelection = () => {
                                         className="button next-button"
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
-                                        onClick={() => setShowReview(true)}
+                                        onClick={handleNextClick}
                                    >
                                         See Your Choices →
                                    </motion.button>

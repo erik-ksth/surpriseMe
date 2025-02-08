@@ -17,3 +17,76 @@
 p {
   font-size: 2rem;
 }
+
+.app-container {
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  background-color: rgba(255, 192, 203, 0.1);
+}
+
+.background-circles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.circle-1 {
+  width: 50vw;
+  height: 50vw;
+  background-color: rgba(255, 182, 193, 0.3); /* Light pink */
+  top: -40%;
+  left: -10%;
+  animation: float1 15s ease-in-out infinite;
+}
+
+.circle-2 {
+  width: 45vw;
+  height: 45vw;
+  background-color: rgba(173, 216, 230, 0.3); /* Light blue */
+  bottom: -40%;
+  right: -10%;
+  animation: float2 18s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(5%, 5%) rotate(180deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+@keyframes float2 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-5%, -5%) rotate(-180deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(-360deg);
+  }
+}
