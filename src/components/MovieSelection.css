@@ -1,0 +1,156 @@
+.movie-content {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.movie-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #434343;
+}
+
+.movie-content p {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #434343;
+}
+
+.movie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 2rem;
+  min-height: 500px;
+}
+
+.card-container {
+  flex: 0 1 350px;
+  aspect-ratio: 2/3;
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+}
+
+.card-container.disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card-container.flipped .card {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.card-front {
+  background: linear-gradient(145deg, #ffffff 0%, #f3f3f3 100%);
+}
+
+.card-back {
+  background: white;
+  transform: rotateY(180deg);
+}
+
+.card-content {
+  text-align: center;
+}
+
+.question-mark {
+  font-size: 5rem;
+  color: #434343;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.card-back img {
+  width: calc(100% - 2rem);
+  height: calc(100% - 4rem);
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.card-back p {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #434343;
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.next-button-container {
+  margin-top: 5rem;
+}
+
+.next-button {
+  background-color: #434343;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.next-button:hover {
+  background-color: #2a2a2a;
+}
+
+@media (max-width: 768px) {
+  .movie-content {
+    padding: 1rem;
+  }
+
+  .movie-grid {
+    gap: 2rem;
+  }
+
+  .card-container {
+    flex: 0 1 300px;
+  }
+
+  .movie-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .movie-content p {
+    font-size: 1.5rem;
+  }
+
+  .next-button {
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+  }
+}
