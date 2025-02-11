@@ -36,6 +36,19 @@ const ReviewChoices = () => {
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: 0.6 }}
                          >
+                              <h2>Activity Plans 🍽️</h2>
+                              <div className="choice-image">
+                                   <img src={selectedChoices.activity?.imageUrl} alt={selectedChoices.activity?.title} />
+                              </div>
+                              <p>{selectedChoices.activity?.title}</p>
+                         </motion.div>
+
+                         <motion.div
+                              className="choice-card"
+                              initial={{ opacity: 0, y: 50 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.6 }}
+                         >
                               <h2>Dinner Plans 🍽️</h2>
                               <div className="choice-image">
                                    <img src={selectedChoices.dinner?.imageUrl} alt={selectedChoices.dinner?.title} />

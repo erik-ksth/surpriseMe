@@ -3,6 +3,7 @@ import { Choice } from '../data/choices';
 
 interface SelectedChoices {
      outfit: Choice | null;
+     activity: Choice | null;
      dinner: Choice | null;
      movie: Choice | null;
 }
@@ -10,6 +11,7 @@ interface SelectedChoices {
 interface ChoicesContextType {
      selectedChoices: SelectedChoices;
      setOutfitChoice: (choice: Choice) => void;
+     setActivityChoice: (choice: Choice) => void;
      setDinnerChoice: (choice: Choice) => void;
      setMovieChoice: (choice: Choice) => void;
 }
@@ -19,12 +21,17 @@ const ChoicesContext = createContext<ChoicesContextType | undefined>(undefined);
 export const ChoicesProvider = ({ children }: { children: ReactNode }) => {
      const [selectedChoices, setSelectedChoices] = useState<SelectedChoices>({
           outfit: null,
+          activity: null,
           dinner: null,
           movie: null
      });
 
      const setOutfitChoice = (choice: Choice) => {
           setSelectedChoices(prev => ({ ...prev, outfit: choice }));
+     };
+
+     const setActivityChoice = (choice: Choice) => {
+          setSelectedChoices(prev => ({ ...prev, activity: choice }));
      };
 
      const setDinnerChoice = (choice: Choice) => {
@@ -40,6 +47,7 @@ export const ChoicesProvider = ({ children }: { children: ReactNode }) => {
                value={{
                     selectedChoices,
                     setOutfitChoice,
+                    setActivityChoice,
                     setDinnerChoice,
                     setMovieChoice
                }}

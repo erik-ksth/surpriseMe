@@ -2,27 +2,27 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useMemo } from 'react';
 import { categories } from '../data/choices';
 import { useChoices } from '../context/ChoicesContext';
-import ActivitySelection from './ActivitySelection';
+import DinnerSelection from './DinnerSelection';
 import SoundManager from '../utils/sounds';
-import './OutfitSelection.css';
+import './ActivitySelection.css';
 
-const OutfitSelection = () => {
+const ActivitiesSelection = () => {
      const [flippedCard, setFlippedCard] = useState<number | null>(null);
-     const [showDinner, setShowDinner] = useState(false);
-     const outfitCategory = categories.find(cat => cat.name === "Outfit")!;
-     const { setOutfitChoice } = useChoices();
+     const [showMovie, setShowMovie] = useState(false);
+     const activityCategory = categories.find(cat => cat.name === "Activities")!;
+     const { setActivityChoice } = useChoices();
 
      // Randomly shuffle the choices
      const shuffledChoices = useMemo(() => {
-          return Math.random() > 0.5 ? [...outfitCategory.choices] : [...outfitCategory.choices].reverse();
-     }, [outfitCategory.choices]);
+          return Math.random() > 0.5 ? [...activityCategory.choices] : [...activityCategory.choices].reverse();
+     }, [activityCategory.choices]);
 
-     const handleCardClick = (outfitId: number) => {
+     const handleCardClick = (activityId: number) => {
           if (flippedCard === null) {
-               setFlippedCard(outfitId);
-               const selectedOutfit = outfitCategory.choices.find(outfit => outfit.id === outfitId);
-               if (selectedOutfit) {
-                    setOutfitChoice(selectedOutfit);
+               setFlippedCard(activityId);
+               const selectedActivity = activityCategory.choices.find(activity => activity.id === activityId);
+               if (selectedActivity) {
+                    setActivityChoice(selectedActivity);
                     SoundManager.playSound('cardFlip');
                }
           }
@@ -30,30 +30,30 @@ const OutfitSelection = () => {
 
      const handleNextClick = () => {
           SoundManager.playSound('transition');
-          setShowDinner(true);
+          setShowMovie(true);
      };
 
-     if (showDinner) {
-          return <ActivitySelection />;
+     if (showMovie) {
+          return <DinnerSelection />;
      }
 
      return (
           <div className="app-container">
                <motion.div
-                    className="outfit-content"
+                    className="activities-content"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
                >
-                    <h1>Perfect! 🥰</h1>
-                    <p>Pick a card to see what you should wear!</p>
+                    <h1>What should we do? 🤔</h1>
+                    <p>Choose an activity to do together!</p>
 
-                    <div className="outfit-grid">
-                         {shuffledChoices.map((outfit, index) => (
+                    <div className="activities-grid">
+                         {shuffledChoices.map((activity, index) => (
                               <motion.div
-                                   key={outfit.id}
-                                   className={`card-container ${flippedCard === outfit.id ? 'flipped' : ''} ${flippedCard !== null && flippedCard !== outfit.id ? 'disabled' : ''}`}
-                                   onClick={() => handleCardClick(outfit.id)}
+                                   key={activity.id}
+                                   className={`card-container ${flippedCard === activity.id ? 'flipped' : ''} ${flippedCard !== null && flippedCard !== activity.id ? 'disabled' : ''}`}
+                                   onClick={() => handleCardClick(activity.id)}
                                    whileHover={flippedCard === null ? { scale: 1.05 } : {}}
                                    whileTap={flippedCard === null ? { scale: 0.95 } : {}}
                                    initial={{
@@ -61,8 +61,8 @@ const OutfitSelection = () => {
                                         x: index === 0 ? -100 : 100
                                    }}
                                    animate={{
-                                        opacity: flippedCard !== null && flippedCard !== outfit.id ? 0.5 : 1,
-                                        scale: flippedCard !== null && flippedCard !== outfit.id ? 0.95 : 1,
+                                        opacity: flippedCard !== null && flippedCard !== activity.id ? 0.5 : 1,
+                                        scale: flippedCard !== null && flippedCard !== activity.id ? 0.95 : 1,
                                         x: 0,
                                         transition: { duration: 0.5 }
                                    }}
@@ -75,8 +75,8 @@ const OutfitSelection = () => {
                                              </div>
                                         </div>
                                         <div className="card-back">
-                                             <img src={outfit.imageUrl} alt={outfit.title} />
-                                             <p>{outfit.title}</p>
+                                             <img src={activity.imageUrl} alt={activity.title} />
+                                             <p>{activity.title}</p>
                                         </div>
                                    </div>
                               </motion.div>
@@ -108,4 +108,4 @@ const OutfitSelection = () => {
      );
 };
 
-export default OutfitSelection; 
+export default ActivitiesSelection; 

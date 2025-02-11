@@ -1,9 +1,11 @@
 import whiteTexture from "../assets/outfits/whiteTexture.jpg";
 import blackTexture from "../assets/outfits/blackTexture.jpg";
-import yardHouse from "../assets/dinner/yardHouse.jpg";
 import beakjeong from "../assets/dinner/beakjeong.jpg";
+import dinTaiFung from "../assets/dinner/dinTaiFung.webp";
 import romance from "../assets/movie/romance.webp";
-import action from "../assets/movie/action.jpeg";
+import horror from "../assets/movie/horror.jpg";
+import clawMeee from "../assets/activities/clawMeee.jpg";
+import petroglyph from "../assets/activities/petroglyph.jpg";
 
 export interface Choice {
   id: number;
@@ -26,12 +28,12 @@ export const categories: Category[] = [
     choices: [
       {
         id: 1,
-        title: "White Classy",
+        title: "White",
         imageUrl: whiteTexture,
       },
       {
         id: 2,
-        title: "Black Classy",
+        title: "Black",
         imageUrl: blackTexture,
       },
     ],
@@ -43,13 +45,13 @@ export const categories: Category[] = [
     choices: [
       {
         id: 3,
-        title: "Adventure Time",
-        imageUrl: "/images/hiking.jpg",
+        title: "Claw Meee",
+        imageUrl: clawMeee,
       },
       {
         id: 4,
-        title: "Urban Explorer",
-        imageUrl: "/images/gallery.jpg",
+        title: "Petroglyph Ceramic Lounge",
+        imageUrl: petroglyph,
       },
     ],
   },
@@ -65,8 +67,8 @@ export const categories: Category[] = [
       },
       {
         id: 6,
-        title: "Yard House",
-        imageUrl: yardHouse,
+        title: "Din Tai Fung",
+        imageUrl: dinTaiFung,
       },
     ],
   },
@@ -82,8 +84,8 @@ export const categories: Category[] = [
       },
       {
         id: 8,
-        title: "Action",
-        imageUrl: action,
+        title: "Horror",
+        imageUrl: horror,
       },
     ],
   },

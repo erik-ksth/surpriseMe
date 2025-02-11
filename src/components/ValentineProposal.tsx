@@ -10,8 +10,8 @@ const ValentineProposal = () => {
 
      const moveNoButton = () => {
           // Generate random position within a smaller boundary
-          const randomX = Math.random() * (window.innerWidth / 2) - window.innerWidth / 4;
-          const randomY = Math.random() * (window.innerHeight / 2) - window.innerHeight / 4;
+          const randomX = Math.random() * (window.innerWidth / 2) - window.innerWidth / 2;
+          const randomY = Math.random() * (window.innerHeight / 2) - window.innerHeight / 2;
           setNoButtonPosition({ x: randomX, y: randomY });
      };
 
