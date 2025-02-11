@@ -65,7 +65,7 @@ const ValentineProposal = () => {
                          animate={{ opacity: 1 }}
                          transition={{ delay: 2, duration: 1.5 }}
                     >
-                         Are you ready to be my valentine?
+                         Do you want to be my valentine?
                     </motion.p>
 
                     <motion.div
